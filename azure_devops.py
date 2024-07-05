@@ -47,6 +47,9 @@ def create_devops_issue(title, description, personal_access_token, organization,
         "Authorization": f"Basic {b64_pat}",
         "Content-Type": "application/json-patch+json"
     }
+
+    formatted_description = description.replace("\n", "<br>")
+
     payload = [
         {
             "op": "add",
@@ -56,7 +59,7 @@ def create_devops_issue(title, description, personal_access_token, organization,
         {
             "op": "add",
             "path": "/fields/System.Description",
-            "value": description,
+            "value": formatted_description,
         },
         {
             "op": "add",
