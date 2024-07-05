@@ -17,8 +17,8 @@ Installation Steps
 
     bash
 
-git clone https://github.com/Muslix/email-to-devops-issues.git
-cd email-to-devops-issues
+git clone https://github.com/Muslix/email-to-devops-backlog.git
+cd email-to-devops-backlog
 
 Install the required Python packages:
 
