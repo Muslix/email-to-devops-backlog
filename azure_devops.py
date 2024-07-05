@@ -1,5 +1,7 @@
 import requests
 import base64
+from log_config import setup_logging
+logger = setup_logging()
 
 def create_devops_issue(title, description, personal_access_token, organization, project):
     url = f"https://dev.azure.com/{organization}/{project}/_apis/wit/workitems/$Issue?api-version=6.0"
@@ -14,9 +16,9 @@ def create_devops_issue(title, description, personal_access_token, organization,
     ]
     response = requests.post(url, headers=headers, json=payload)
     if response.status_code == 200:
-        print("Azure DevOps Issue erfolgreich erstellt.")
+        logger.info("Azure DevOps issue successfully created.")
     else:
-        print("Fehler beim Erstellen des Azure DevOps Issues:")
-        print("Body:", description)
-        print("Titel:", title)
-        print("Response:", response)
+        logger.error("Error creating Azure DevOps issue:")
+        logger.error("Body: %s", description)
+        logger.error("Title: %s", title)
+        logger.error("Response: %s", response)

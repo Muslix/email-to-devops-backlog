@@ -5,6 +5,8 @@ import azure_devops
 import config
 import email
 from email.header import decode_header
+from log_config import setup_logging
+logger = setup_logging()
 
 def check_emails(mail):
     mail.select(config.MAILBOX)
@@ -18,7 +20,7 @@ def check_emails(mail):
                 if isinstance(subject, bytes):
                     subject = subject.decode()
                 body = email_utils.get_email_body(msg)
-                print("Neue E-Mail gefunden:", subject)
+                logger.info('Found new email: %s', subject)
                 azure_devops.create_devops_issue(subject, body, config.ACCESS_TOKEN, config.ORGANIZATION, config.PROJECT)
                 mail.store(num, '+FLAGS', '\\Seen')
 
@@ -28,7 +30,7 @@ def main():
     try:
         while True:
             check_emails(mail)
-            time.sleep(300)
+            time.sleep(10)
     finally:
         mail.logout()
 
