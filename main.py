@@ -19,9 +19,13 @@ def check_emails(mail):
                 subject = decode_header(msg['subject'])[0][0]
                 if isinstance(subject, bytes):
                     subject = subject.decode()
-                body = email_utils.get_email_body(msg)
+                body, images = email_utils.get_email_content(msg)
                 logger.info('Found new email: %s', subject)
-                azure_devops.create_devops_issue(subject, body, config.ACCESS_TOKEN, config.ORGANIZATION, config.PROJECT)
+                bug_id = azure_devops.create_devops_issue(subject, body, config.ACCESS_TOKEN, config.ORGANIZATION, config.PROJECT)
+                if bug_id:
+                    for filename, image_data in images:
+                        azure_devops.upload_attachment_to_devops(config.ORGANIZATION, config.PROJECT, bug_id, filename, image_data,  config.ACCESS_TOKEN)
+
                 mail.store(num, '+FLAGS', '\\Seen')
 
 def main():
