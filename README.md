@@ -1,34 +1,34 @@
 Email to DevOps Issues
-Beschreibung
+Description
 
-Dieses Repository enthält ein Skript, das automatisch E-Mails verarbeitet und entsprechende Issues in Azure DevOps erstellt. Es eignet sich ideal für Teams, die E-Mail-Anfragen automatisch in trackbare Tickets umwandeln möchten.
-Voraussetzungen
+This repository contains a script that automatically processes emails and creates corresponding issues in Azure DevOps. It is ideal for teams wanting to automatically convert email requests into trackable tickets.
+Prerequisites
 
-Bevor Sie das Projekt einrichten, stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen:
+Before setting up the project, ensure you meet the following requirements:
 
-    Python 3.6 oder höher
-    Zugang zu einem E-Mail-Konto mit IMAP-Unterstützung
-    Ein Azure DevOps-Konto
+    Python 3.6 or higher
+    Access to an email account with IMAP support
+    An Azure DevOps account
 
-Einrichtung
-Schritte zur Installation
+Setup
+Installation Steps
 
-    Klonen Sie das Repository:
+    Clone the repository:
 
     bash
 
 git clone https://github.com/Muslix/email-to-devops-issues.git
 cd email-to-devops-issues
 
-Installieren Sie die erforderlichen Python-Pakete:
+Install the required Python packages:
 
 bash
 
     pip install -r requirements.txt
 
-Konfiguration der Umgebung
+Environment Configuration
 
-    Erstellen Sie eine Datei namens .env im Hauptverzeichnis des Projekts. Diese Datei wird verwendet, um sensible Daten wie Passwörter und API-Schlüssel sicher zu speichern. Fügen Sie die folgenden Zeilen hinzu und ersetzen Sie die Werte durch Ihre tatsächlichen Konfigurationsdaten:
+    Create a file named .env in the project's root directory. This file is used to securely store sensitive data such as passwords and API keys. Add the following lines, replacing the values with your actual configuration data:
 
     makefile
 
@@ -40,24 +40,27 @@ Konfiguration der Umgebung
     PROJECT=your-devops-project
     ACCESS_TOKEN=your-devops-access-token
 
-Generierung eines Access Tokens für Azure DevOps
+Generating an Access Token for Azure DevOps
 
-    Loggen Sie sich in Ihr Azure DevOps-Konto ein.
-    Navigieren Sie zu Benutzer-Einstellungen > Personal Access Tokens.
-    Klicken Sie auf Neues Token.
-    Geben Sie Ihrem Token einen Namen und wählen Sie das Ablaufdatum.
-    Setzen Sie die benötigten Berechtigungen für Ihr Token, um es Ihrem Anwendungsfall entsprechend zu konfigurieren (zumindest die Berechtigung zum Erstellen von Work Items).
-    Klicken Sie auf Erstellen und kopieren Sie das Token. Stellen Sie sicher, dass Sie es an einem sicheren Ort speichern, da es nach der Erstellung nicht mehr angezeigt wird.
+    Log in to your Azure DevOps account.
+    Navigate to User Settings > Personal Access Tokens.
+    Click New Token.
+    Name your token and select the expiration date.
+    Set the necessary permissions for your token to suit your use case (at a minimum, permission to create work items).
+    Click Create and copy the token. Be sure to store it in a secure location, as it will not be displayed again after creation.
 
-Verwendung
+Usage
 
-Um das Skript zu starten, navigieren Sie im Terminal oder Command Prompt zum Verzeichnis des Projekts und führen Sie folgenden Befehl aus:
+To start the script, navigate in your terminal or command prompt to the project directory and execute the following command:
 
 bash
 
 python main.py
 
-Das Skript prüft kontinuierlich das angegebene E-Mail-Konto auf neue Nachrichten und erstellt bei jeder neuen E-Mail ein Issue in Azure DevOps.
-Unterstützung
+The script continuously checks the specified email account for new messages and creates an issue in Azure DevOps for each new email.
+Support
 
-Für Unterstützung und Fehlerberichte eröffnen Sie bitte ein Issue im GitHub-Repository.
+For support and bug reporting, please open an issue in the GitHub repository.
+License
+
+This project is licensed under the MIT License. Further details can be found in the LICENSE file.
