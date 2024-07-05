@@ -1,4 +1,4 @@
-Email to DevOps Issues
+Email to DevOps Backlog
 Description
 
 This repository contains a script that automatically processes emails and creates corresponding issues in Azure DevOps. It is ideal for teams wanting to automatically convert email requests into trackable tickets.
@@ -17,8 +17,8 @@ Installation Steps
 
     bash
 
-git clone https://github.com/Muslix/email-to-devops-issues.git
-cd email-to-devops-issues
+git clone https://github.com/Muslix/email-to-devops-backlog.git
+cd email-to-devops-backlog
 
 Install the required Python packages:
 
