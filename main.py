@@ -28,7 +28,7 @@ def main():
     try:
         while True:
             check_emails(mail)
-            time.sleep(10)
+            time.sleep(300)
     finally:
         mail.logout()
 

@@ -1,0 +1,3 @@
+imaplib3
+python-dotenv
+requests
