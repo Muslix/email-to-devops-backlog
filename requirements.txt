@@ -1,4 +1,3 @@
-imaplib3
 python-dotenv
 requests
 fuzzywuzzy[speedup]
